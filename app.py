@@ -15,7 +15,7 @@ def main():
     if option == "Upload Image File":
         file = st.file_uploader("Please upload an image", type=["jpg", "png"])
         if file is not None:
-          # image = Image.open(file)
+          image = Image.open(file)
           result = classifier(file)[0]
           label = result['label']
           score = result['score']*100
@@ -23,7 +23,7 @@ def main():
           st.success(f"The image is of the {label} with {score:.2f} % probability.") 
 
     elif option == "Run Example Image":
-      # image = Image.open('rose_demo.jpg')
+      image = Image.open('rose_demo.jpg')
       result = classifier('rose_demo.jpg')[0]
       label = result['label']
       score = result['score']*100
