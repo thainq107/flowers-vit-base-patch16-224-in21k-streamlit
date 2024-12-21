@@ -16,7 +16,7 @@ def main():
         file = st.file_uploader("Please upload an image", type=["jpg", "png"])
         if file is not None:
           image = Image.open(file)
-          result = classifier(file)[0]
+          result = classifier(image)[0]
           label = result['label']
           score = result['score']*100
           st.image(image)
